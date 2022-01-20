@@ -1,12 +1,12 @@
 <template>
   <div class="wrapper"> 
-      
+      {{card}}
   </div>
 </template>
 
 <script>
 export default {
-props: ['cards'],
+props: ['card'],
 }
 </script>
 

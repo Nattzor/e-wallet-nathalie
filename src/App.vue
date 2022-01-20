@@ -1,13 +1,13 @@
 <template>
     <main class="app">
       <nav>
-        <a @click="currentView = 'home'"> </a> 
+        <a @click="currentView = 'wallet'"> </a> 
         </nav>
         <div>
-          <Wallet v-if="currentView == 'home'"/>
-            <AddCard v-else-if="currentView == 'about'"/>
+          <Wallet v-bind:cards="cards"  v-if="currentView == 'wallet'"/>
+            <AddCard v-else-if="currentView == 'addCard'"/>
 
-          <button @click="currentView = 'about'">Add new Card </button>
+          <button @click="currentView = 'addCard'">Add new Card </button>
           </div>
     
   </main>
@@ -21,7 +21,7 @@ export default {
   components: {Wallet, AddCard},
 data() { return {
   cards: [{id: 0, fname: 'Nathalie', lnam: 'Larsson', cardnum: 666-666-666,}],
-currentView: 'home'
+currentView: 'wallet'
 }
 }
 }
