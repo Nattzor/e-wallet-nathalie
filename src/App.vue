@@ -1,6 +1,32 @@
 <template>
-  <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <h1>Welcome to Your Vue.js App</h1>
-  </div>
+    <main class="app">
+      <nav>
+        <a @click="currentView = 'home'"> </a> 
+        </nav>
+        <div>
+          <Wallet v-if="currentView == 'home'"/>
+            <AddCard v-else-if="currentView == 'about'"/>
+
+          <button @click="currentView = 'about'">Add new Card </button>
+          </div>
+    
+  </main>
 </template>
+
+<script>
+import Wallet from './Wallet.vue'
+import AddCard from './AddCard.vue'
+
+export default {
+  components: {Wallet, AddCard},
+data() { return {
+  cards: [{id: 0, fname: 'Nathalie', lnam: 'Larsson', cardnum: 666-666-666,}],
+currentView: 'home'
+}
+}
+}
+</script>
+
+<style>
+
+</style>
