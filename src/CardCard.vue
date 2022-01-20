@@ -1,6 +1,8 @@
 <template>
   <div class="wrapper"> 
-      {{card}}
+      <h1>{{card.cardnum}}</h1>
+      <p>Cardholder name: <br>{{card.fname}} {{card.lname}} </p>
+       <p>Year/Month <br>{{card.year}}/{{card.month}}</p>
   </div>
 </template>
 

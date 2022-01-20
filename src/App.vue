@@ -20,7 +20,9 @@ import AddCard from './AddCard.vue'
 export default {
   components: {Wallet, AddCard},
 data() { return {
-  cards: [{id: 0, fname: 'Nathalie', lnam: 'Larsson', cardnum: 666-666-666,}],
+  cards: [{id: 0, fname: 'Nathalie', lname: 'Larsson', cardnum: 666666666, year: 22, month:21, ccv: 555},
+    {id: 1, fname: 'Nathalie', lname: 'Larsson', cardnum: 3333333333, year: 22, month:21, ccv: 555},
+    {id: 2, fname: 'Nathalie', lname: 'Larsson', cardnum: 9999999999, year: 22, month:21, ccv: 555}],
 currentView: 'wallet'
 }
 }

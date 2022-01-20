@@ -1,6 +1,6 @@
 <template>
 <div>
-  <h1> Home </h1>
+  <h1> E-Wallet</h1>
   <CardCard v-for="card in cards" :key ="card.id" v-bind:card="card" />
   </div>
 </template>
