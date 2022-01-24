@@ -15,6 +15,11 @@ export default {
 }
 </script>
 
-<style>
 
+<style>
+div{
+  height: 337px;
+  width: 382px;
+  background-color: rgb(241, 233, 232);
+}
 </style>
