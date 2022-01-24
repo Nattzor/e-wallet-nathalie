@@ -1,23 +1,48 @@
 <template>
-  <div class="wrapper"> 
+  <div class="wrapper" v-bind:style="cardColors"> 
       <h1>{{card.cardnum}}</h1>
+      <img v-bind:src="card.vendor.logo">
       <p class="name">Cardholder name: <br>{{card.name}}</p>
        <p class="date">Year/Month <br>{{card.year}}/{{card.month}}</p>
+       
   </div>
 </template>
 
 <script >
 export default {
 props: ['card'],
+computed: {
+    cardColors() {
+      return {
+        backgroundColor: this.card.vendor.backgroundColor,
+        color: this.card.vendor.fontColor,
+      };
+}
+}
 }
 </script>
 
 <style scoped>
-.name {
-  margin-left: 15px;
+img {
+    text-align: left;
 }
-.valid-thru {
-  margin-right: 15px;
+
+.wrapper {
+    position: relative;
+width: 382px;
+height: 241px;
+left: 16px;
+top: 138px;
+
+filter: drop-shadow(0px 0px 16px rgba(0, 0, 0, 0.12));
+}
+
+.name {
+  margin-left: 1rem;
+}
+.date {
+  text-align: right;
+  margin: 1rem;
 }
 .cardheader {
   font-size: 10px;
@@ -64,50 +89,4 @@ props: ['card'],
   box-shadow: 0px 0px 10px 1px rgba(0, 0, 0, 0.81);
   margin-bottom: 40px;
 }
-</style>
-
-<style scoped>
-
-.wrapper {
-    position: absolute;
-width: 382px;
-height: 241px;
-top: 138px;
-}
-.wrapper:nth-child(2) {
-    position: absolute;
-width: 382px;
-height: 241px;
-top: 419px;
-
-background-color: rgb(113, 113, 122);
-filter: drop-shadow(0px 0px 32px rgba(0, 0, 0, 0.1));
-}
-.wrapper:nth-child(3) {
-    position: absolute;
-width: 382px;
-height: 241px;
-top: 466px;
-background-color: rgb(32, 29, 29);
-color: white;
-filter: drop-shadow(0px 0px 32px rgba(0, 0, 0, 0.1));
-}
-/* .wrapper:nth-child(1){
-    position: relative;
-width: 382px;
-height: 241px;
-left: 16px;
-top: 515px;
-
-} */
-.name {
-    text-align: left;
-}
-.date {
-    text-align: right;
-}
-.chip {
-    text-align: left;
-}
-
 </style>

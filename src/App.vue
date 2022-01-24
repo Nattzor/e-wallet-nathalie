@@ -3,11 +3,8 @@
       <nav>
         <a @click="currentView = 'wallet'"> </a> 
         </nav>
-        <div>
           <Wallet v-bind:cards="cards" v-if="currentView == 'wallet'" @viewChange="changeView" />
-    <AddCard v-else @viewChange="changeView" @sendCard="newCardInfo"/>/>
-             <button v-if="currentView == 'wallet'" @click="currentView = 'addCard'">Add new Card </button>
-          </div>
+    <AddCard v-else @viewChange="changeView" @sendCard="newCardInfo"/>
   </main>
 </template>
 
@@ -18,9 +15,9 @@ import AddCard from './AddCard.vue'
 export default {
   components: {Wallet, AddCard},
 data() { return {
-  cards: [{id: 0, name: 'Nathalie Larsson', cardnum: 666+" "+666+" "+666, year: 22, month:21, ccv: 555, vendor: ''},
-    {id: 1, name: 'Nathalie Larsson', cardnum: 333+" "+333+" "+3333, year: 22, month:21, ccv: 555, vendor: ''},
-    {id: 2, name: 'Nathalie Larsson', cardnum: 999+" "+9999+" "+999, year: 22, month:21, ccv: 555, vendor: ''}],
+  cards: [{id: 0, name: 'Nathalie Larsson', cardnum: 666+" "+666+" "+666, year: 22, month:21, ccv: 555, vendor: 'Block Chain Inc'},
+    {id: 1, name: 'Nathalie Larsson', cardnum: 333+" "+333+" "+3333, year: 22, month:21, ccv: 555, vendor: 'Ninja Bank'},
+    {id: 2, name: 'Nathalie Larsson', cardnum: 999+" "+9999+" "+999, year: 22, month:21, ccv: 555, vendor: 'Bitcoin Inc'}],
 currentView: 'wallet'
 }
 }, 

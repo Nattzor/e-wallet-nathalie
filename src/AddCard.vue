@@ -22,7 +22,7 @@
       <label for="vendor">VENDOR</label>
       <select id="vendor" name="vendor" v-model="cardInfo.vendor">
         <option
-          v-for="vendor in vendors"
+          v-for="vendor in vendor"
           :key="vendor.name"
           name="vendor"
           :value="vendor"
@@ -32,7 +32,7 @@
       </select>
        <label for="cardCcv">CCV</label><br>
       <input v-model="cardInfo.ccv" type="text" id="cardCcv"><br>
-        <button> Add CARD</button>
+        <button class="buttonOnBottom"> Add CARD</button>
        </form>
   </main>
 </template>
@@ -56,8 +56,7 @@ export default {
         '12',
       ],
       years: ['2022', '2023', '2024', '2025', '2026'],
-      vendors: [
-        {},
+      vendor: [
         {
           name: 'Bitcoin Inc',
           backgroundColor: '#FFAE34',
@@ -94,6 +93,16 @@ export default {
   }
 </script>
 
-<style>
+<style scoped>
+form{
+  display: flex;
+  flex-direction: column;
+  max-width: 400px;
+  margin: auto;
+}
+form > * {
+  margin: 0.25rem;
+  font-size: 1rem;
+}
 
 </style>
