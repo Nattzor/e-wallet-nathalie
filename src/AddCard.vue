@@ -21,11 +21,7 @@
 
       <label for="vendor">VENDOR</label>
       <select id="vendor" name="vendor" v-model="cardInfo.vendor">
-        <option
-          v-for="vendor in vendor"
-          :key="vendor.name"
-          name="vendor"
-          :value="vendor"
+        <option v-for="vendor in vendor" :key="vendor.name" :name="vendor" :value="vendor"
         >
           {{ vendor.name }}
         </option>
@@ -60,25 +56,25 @@ export default {
         {
           name: 'Bitcoin Inc',
           backgroundColor: '#FFAE34',
-          fontColor: 'black',
+          color: 'black',
           logo: require('./assets/bitcoin.svg'),
         },
         {
           name: 'Ninja Bank',
           backgroundColor: '#222222',
-          fontColor: 'white',
+          color: 'white',
           logo: require('./assets/ninja.svg'),
         },
         {
           name: 'Block Chain Inc',
           backgroundColor: '#8B58F9',
-          fontColor: 'white',
+          color: 'white',
           logo: require('./assets/blockchain.svg'),
         },
         {
           name: 'Evil Corp',
           backgroundColor: '#F33355',
-          fontColor: 'white',
+          color: 'white',
           logo: require('./assets/evil.svg'),
         },
       ],

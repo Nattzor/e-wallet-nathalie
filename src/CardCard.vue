@@ -15,7 +15,7 @@ computed: {
     cardColors() {
       return {
         backgroundColor: this.card.vendor.backgroundColor,
-        color: this.card.vendor.fontColor,
+        color: this.card.vendor.color,
       };
 }
 }
@@ -27,7 +27,7 @@ img {
     text-align: left;
 }
 
-.wrapper {
+.wrapper:nth-child() {
     position: relative;
 width: 382px;
 height: 241px;
@@ -35,6 +35,21 @@ left: 16px;
 top: 138px;
 
 filter: drop-shadow(0px 0px 16px rgba(0, 0, 0, 0.12));
+}
+.wrapper:nth-child(2){
+    position: relative;
+width: 382px;
+height: 241px;
+left: 16px;
+top: 466px;
+}
+
+.wrapper:nth-child(3){
+    position: relative;
+width: 382px;
+height: 241px;
+left: 16px;
+top: 515px;
 }
 
 .name {
