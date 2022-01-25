@@ -2,6 +2,7 @@
 <main>
 <div>
   <h1> E-Wallet</h1>
+  <h3>Active card</h3>
   <CardCard v-for="card in cards" :key ="card.id" v-bind:card="card" />
   </div>
   <button class="bottomOfPage" @click="changeView">Add new Card </button>

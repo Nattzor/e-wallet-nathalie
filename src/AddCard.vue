@@ -1,5 +1,8 @@
 <template>
 <main>
+    <div> 
+        </div>
+    <div>
   <h1>ADD A NEW BANK CARD</h1>
   <form @submit.prevent="sendCard">
       <label for="cardNumber">CARD NUMBER</label><br>
@@ -18,11 +21,9 @@
               {{ year }}
             </option>
           </select>
-
       <label for="vendor">VENDOR</label>
       <select id="vendor" name="vendor" v-model="cardInfo.vendor">
-        <option v-for="vendor in vendor" :key="vendor.name" :name="vendor" :value="vendor"
-        >
+        <option v-for="vendor in vendor" :key="vendor.name" :name="vendor" :value="vendor">
           {{ vendor.name }}
         </option>
       </select>
@@ -30,6 +31,7 @@
       <input v-model="cardInfo.ccv" type="text" id="cardCcv"><br>
         <button class="buttonOnBottom"> Add CARD</button>
        </form>
+       </div>
   </main>
 </template>
 

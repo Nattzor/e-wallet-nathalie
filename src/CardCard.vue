@@ -4,14 +4,13 @@
       <img class="logo" v-bind:src="card.vendor.logo">
       <p class="name">Cardholder name: <br>{{card.name}}</p>
        <p class="date">Year/Month <br>{{card.year}}/{{card.month}}</p>
-       
-  </div>
+       </div>
 </template>
 
 <script >
 export default {
     data() { return {
-        isActive: "false"
+        isActive: false,
     }
     },
 props: ['card'],
@@ -56,11 +55,25 @@ left: 16px;
 top: 515px;
 }
 
+.logo {
+    display: flex;
+    align-self: flex-end;
+}
+
+.space {
+    margin: 1rem;
+}
+
 .name {
   margin-left: 1rem;
 }
 .date {
   text-align: right;
   margin: 1rem;
+}
+
+.active {
+   transform: translateY(-50px);
+   transition: 1s;
 }
 </style>
