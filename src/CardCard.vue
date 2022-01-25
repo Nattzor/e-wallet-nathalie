@@ -1,5 +1,5 @@
 <template>
-  <div class="wrapper" v-bind:style="cardColors"> 
+  <div :class="{ active: isActive }" @click="isActive = !isActive" class="wrapper" v-bind:style="cardColors"> 
       <h1>{{card.cardnum}}</h1>
       <img v-bind:src="card.vendor.logo">
       <p class="name">Cardholder name: <br>{{card.name}}</p>
@@ -10,6 +10,10 @@
 
 <script >
 export default {
+    data() { return {
+        isActive: "false"
+    }
+    },
 props: ['card'],
 computed: {
     cardColors() {
@@ -17,6 +21,12 @@ computed: {
         backgroundColor: this.card.vendor.backgroundColor,
         color: this.card.vendor.color,
       };
+// }, methods: {
+// isActive() {
+//    if (this.isActive !== 'true') {
+//         this.isActive == 'true'
+//       }
+// }
 }
 }
 }

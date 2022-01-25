@@ -15,12 +15,17 @@ import AddCard from './AddCard.vue'
 export default {
   components: {Wallet, AddCard},
 data() { return {
-  cards: [{id: 0, name: 'Nathalie Larsson', cardnum: 666+" "+666+" "+666, year: 22, month:21, ccv: 555, vendor: 'Block Chain Inc'},
+  cards: [{id: 0, name: 'Nathalie Larsson', cardnum: 666+" "+666+" "+666, year: 22, month:21, ccv: 555, vendor: ['Block Chain Inc']},
     {id: 1, name: 'Nathalie Larsson', cardnum: 333+" "+333+" "+3333, year: 22, month:21, ccv: 555, vendor: 'Ninja Bank'},
-    {id: 2, name: 'Nathalie Larsson', cardnum: 999+" "+9999+" "+999, year: 22, month:21, ccv: 555, vendor: 'Bitcoin Inc'}],
+    {id: 2, name: 'Nathalie Larsson', cardnum: 999+" "+9999+" "+999, year: 22, month:21, ccv: 555, vendor: [ {
+          name: 'Bitcoin Inc',
+          backgroundColor: '#FFAE34',
+          color: 'black',
+          logo: require('./assets/bitcoin.svg'),
+  }]}],
 currentView: 'wallet',
 }
-}, 
+},
 methods: {
   newCardInfo(newInfo) {
 this.cards.push(newInfo) 
