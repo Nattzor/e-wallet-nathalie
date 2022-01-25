@@ -39,7 +39,8 @@ filter: drop-shadow(0px 0px 16px rgba(0, 0, 0, 0.12));
 .logoWifi {
   display: flex;
  flex-direction: row;
- width: 4rem;
+ width: 100%;
+ justify-content: space-between;
  height: 4rem;
  
 }

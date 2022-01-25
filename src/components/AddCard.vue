@@ -12,9 +12,11 @@
 </div> -->
     <div>
   <h1>ADD A NEW BANK CARD</h1>
+  <p> {{cardInfo.cardNum}} </p>
+  <p v-if="errors.length"> </p>
   <form @submit.prevent="sendCard">
-      <label for="cardNumr">CARD NUMBER</label><br>
-      <input v-model="cardInfo.cardNum" type="text" id="cardnum"><br>
+      <label for="cardNum">CARD NUMBER</label><br>
+      <input v-model="cardInfo.cardNum" type="text" id="cardNum"><br>
       <label for="cardHolder">CARDHOLDER NAME</label><br>
       <input v-model="cardInfo.name" type="text" id="cardHolder" placeholder="FIRSTNAME LASTNAME"><br>
           <label for="month">MONTH</label>
@@ -90,6 +92,7 @@ export default {
       ],
     }
     },
+    errors: [],
     computed: {
     cardColors() {
       return {
@@ -103,8 +106,17 @@ export default {
             this.$emit('sendCard', {...this.cardInfo})
               this.$emit('viewChange');
         }, 
+        // != /(\d{16}|\d{4}[- ]\d{4}[- ]\d{4}[- ]\d{4}")/g) 
+        validate() {
+          if (this.cardInfo.cardNum.length != 16) {
+        this.errors.push('must contain 16 digits')
+          }
+          if (this.cardInfo.name.length == 0) {
+            this.errors.push('must contain lest 1 letter')
+          }
+        }
     }
-  }
+}
 </script>
 
 <style scoped>

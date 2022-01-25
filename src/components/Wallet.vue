@@ -3,7 +3,7 @@
 <div>
   <h1> E-Wallet</h1>
   <h5>Active card</h5>
-  <CardCard v-if="isActive" v-bind:card="isActive"/>
+  <CardCard class="activeCard" v-if="isActive" v-bind:card="isActive"/>
 
   <CardCard class="cardStack" v-for="card in cards" :key ="card.id" v-bind:card="card" @activeCard="activeCard" />
   </div>
@@ -34,7 +34,11 @@ this.$emit('activeCard', this.isActive)
 </script>
 
 
-<style>
+<style scoped>
+.activeCard{
+    margin-bottom: 3rem;
+}
+
 .cardStack{
 display: grid;
 grid-auto-rows: 2rem;
@@ -47,9 +51,5 @@ width: 382px;
 height: 80px;
 left: 16px;
 top: 5rem;
-}
-
-article{
-margin-bottom: 10rem;;
 }
 </style>
