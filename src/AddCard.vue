@@ -1,7 +1,5 @@
 <template>
 <main>
-    <div> 
-        </div>
     <div>
   <h1>ADD A NEW BANK CARD</h1>
   <form @submit.prevent="sendCard">

@@ -50,9 +50,10 @@ this.cards.push(newInfo)
 h1 {
   font-family: 'Source Sans Pro', sans-serif;
 }
-h4 {
+h5 {
   color: #222222;
   opacity: 60%;
+  font-family: 'Source Sans Pro', sans-serif;
 }
 input {
   font-family: 'PT Mono', monospace;
