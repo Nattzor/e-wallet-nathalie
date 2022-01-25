@@ -5,7 +5,7 @@
   <h5>Active card</h5>
   <CardCard v-if="isActive" v-bind:card="isActive"/>
 
-  <CardCard v-for="card in cards" :key ="card.id" v-bind:card="card" @activeCard="activeCard" />
+  <CardCard class="cardStack" v-for="card in cards" :key ="card.id" v-bind:card="card" @activeCard="activeCard" />
   </div>
   <button class="bottomOfPage" @click="changeView">Add new Card </button>
   </main>
@@ -30,32 +30,26 @@ this.isActive = card
 this.$emit('activeCard', this.isActive)
 }
     },
-    // computed: {
-    // cardColors() {
-    //   return {
-    //     backgroundColor: this.card.vendor.backgroundColor,
-    //     color: this.card.vendor.color,
-    //   };
-    // }
-    // }
 }
 </script>
 
 
 <style>
-div{
-  width: 382px;
-  background-color: rgb(241, 233, 232);
+.cardStack{
+display: grid;
+grid-auto-rows: 2rem;
+background-color: rgb(241, 233, 232);
 }
 
 .bottomOfPage {
-  position: relative;
+position: relative;
 width: 382px;
 height: 80px;
 left: 16px;
-top: 2rem;
+top: 5rem;
 }
+
 article{
-    margin-bottom: 10rem;;
+margin-bottom: 10rem;;
 }
 </style>

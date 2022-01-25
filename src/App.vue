@@ -9,15 +9,37 @@
 </template>
 
 <script>
-import Wallet from './Wallet.vue'
-import AddCard from './AddCard.vue'
+import Wallet from './components/Wallet.vue'
+import AddCard from './components/AddCard.vue'
 
 export default {
   components: {Wallet, AddCard},
 data() { return {
-  cards: [{id: 0, name: 'Nathalie Larsson', cardnum: 666+" "+666+" "+666, year: 22, month:21, ccv: 555, vendor: ['Block Chain Inc']},
-    {id: 1, name: 'Nathalie Larsson', cardnum: 333+" "+333+" "+3333, year: 22, month:21, ccv: 555, vendor: 'Ninja Bank'},
-    {id: 2, name: 'Nathalie Larsson', cardnum: 999+" "+9999+" "+999, year: 22, month:21, ccv: 555, vendor: ''}],
+  cards: [{id: 0, name: 'Nathalie Larsson', cardnum: 666+" "+666+" "+666, year: 22, month:21, ccv: 555, vendor: { 
+          name: 'Ninja Bank',
+          backgroundColor: '#222222',
+          color: 'white',
+          logo: require('./assets/ninja.svg'),
+          wifi: require('./assets/wifi_white.svg'),
+          chip: require('./assets/chip.svg')
+        }},
+    {id: 1, name: 'Nathalie Larsson', cardnum: 333+" "+333+" "+3333, year: 22, month:21, ccv: 555, vendor: {
+          name: 'Block Chain Inc',
+          backgroundColor: '#8B58F9',
+          color: 'white',
+          logo: require('./assets/blockchain.svg'),
+          wifi: require('./assets/wifi_white.svg'),
+          chip: require('./assets/chip.svg')
+        }},
+    {id: 2, name: 'Nathalie Larsson', cardnum: 999+" "+9999+" "+999, year: 22, month:21, ccv: 555, vendor:  {
+          name: 'Evil Corp',
+          backgroundColor: '#F33355',
+          color: 'white',
+          logo: require('./assets/evil.svg'),
+          wifi: require('./assets/wifi_white.svg'),
+          chip: require('./assets/chip.svg')
+          
+        }}],
 currentView: 'wallet',
 }
 },
