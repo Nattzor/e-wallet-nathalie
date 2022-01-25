@@ -21,12 +21,6 @@ computed: {
         backgroundColor: this.card.vendor.backgroundColor,
         color: this.card.vendor.color,
       };
-// }, methods: {
-// isActive() {
-//    if (this.isActive !== 'true') {
-//         this.isActive == 'true'
-//       }
-// }
 }
 }
 }
@@ -70,26 +64,12 @@ top: 515px;
   margin: 1rem;
 }
 .cardheader {
-  font-size: 10px;
   font-family: 'PT Mono', monospace;
   text-align: left;
 }
 .cardinfo {
-  font-size: 15px;
   font-family: 'PT Mono', monospace;
   margin-top: 5px;
-}
-#cardnum {
-  font-size: 23px;
-  letter-spacing: 0.3rem;
-  margin-top: 10px;
-  font-family: 'PT Mono', monospace;
-}
-#wifiImg {
-  max-width: 40px;
-}
-#chipImg {
-  max-width: 40px;
 }
 .logos {
   display: flex;
