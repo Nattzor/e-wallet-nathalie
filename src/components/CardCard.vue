@@ -1,11 +1,11 @@
 <template>
   <div class="wrapper" v-bind:style="cardColors" @click="$emit('activeCard', card)"> 
-    <h1>{{card.cardnum}}</h1>
+    <h1>{{card.cardNum}}</h1>
     <div class="logoWifi">
-    <img v-bind:src="card.vendor.logo">
-    <img v-bind:src="card.vendor.wifi">
+    <img :src="card.vendor.wifi">
+    <img :src="card.vendor.logo">
     </div>
-    <img class="chip" v-bind:src="card.vendor.chip">
+    <img class="chip" :src="card.vendor.chip">
     <p class="name">Cardholder name: <br>{{card.name}} </p>
     <p class="date">Year/Month <br>{{card.year}}/{{card.month}}</p>
 </div>
@@ -38,7 +38,10 @@ filter: drop-shadow(0px 0px 16px rgba(0, 0, 0, 0.12));
 
 .logoWifi {
   display: flex;
- flex-direction: column;
+ flex-direction: row;
+ width: 4rem;
+ height: 4rem;
+ 
 }
 
 .space {

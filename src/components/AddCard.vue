@@ -1,10 +1,20 @@
 <template>
 <main>
+  <!-- <div class="wrapper" v-bind:style="cardColors" @click="$emit('activeCard', card)"> 
+    <h1>{{card.cardnum}}</h1>
+    <div class="logoWifi">
+    <img :src="card.vendor.wifi">
+    <img :src="card.vendor.logo">
+    </div>
+    <img class="chip" :src="card.vendor.chip">
+    <p class="name">Cardholder name: <br>{{card.name}} </p>
+    <p class="date">Year/Month <br>{{card.year}}/{{card.month}}</p>
+</div> -->
     <div>
   <h1>ADD A NEW BANK CARD</h1>
   <form @submit.prevent="sendCard">
-      <label for="cardNumber">CARD NUMBER</label><br>
-      <input v-model="cardInfo.cardNumber" type="text" id="cardNumber"><br>
+      <label for="cardNumr">CARD NUMBER</label><br>
+      <input v-model="cardInfo.cardNum" type="text" id="cardnum"><br>
       <label for="cardHolder">CARDHOLDER NAME</label><br>
       <input v-model="cardInfo.name" type="text" id="cardHolder" placeholder="FIRSTNAME LASTNAME"><br>
           <label for="month">MONTH</label>
@@ -36,7 +46,7 @@
 <script>
 export default {
     data() { return {
-        cardInfo: { cardNumber: "", name: "", date: "", ccv:""
+        cardInfo: { cardNum: "", name: "", date: "", ccv:""
         },  months: [
         '01',
         '02',
@@ -79,6 +89,14 @@ export default {
         },
       ],
     }
+    },
+    computed: {
+    cardColors() {
+      return {
+        backgroundColor: this.card.vendor.backgroundColor,
+        color: this.card.vendor.color,
+    };
+}
     },
     methods: {
         sendCard(){
