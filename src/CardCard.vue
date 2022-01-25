@@ -1,7 +1,7 @@
 <template>
   <div :class="{ active: isActive }" @click="isActive = !isActive" class="wrapper" v-bind:style="cardColors"> 
       <h1>{{card.cardnum}}</h1>
-      <img v-bind:src="card.vendor.logo">
+      <img class="logo" v-bind:src="card.vendor.logo">
       <p class="name">Cardholder name: <br>{{card.name}}</p>
        <p class="date">Year/Month <br>{{card.year}}/{{card.month}}</p>
        
@@ -31,7 +31,7 @@ img {
     text-align: left;
 }
 
-.wrapper:nth-child() {
+.wrapper {
     position: relative;
 width: 382px;
 height: 241px;
@@ -62,36 +62,5 @@ top: 515px;
 .date {
   text-align: right;
   margin: 1rem;
-}
-.cardheader {
-  font-family: 'PT Mono', monospace;
-  text-align: left;
-}
-.cardinfo {
-  font-family: 'PT Mono', monospace;
-  margin-top: 5px;
-}
-.logos {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin-top: 20px;
-  margin-left: 20px;
-}
-.upperpart {
-  display: flex;
-  justify-content: space-between;
-}
-.bottompart {
-  display: flex;
-  justify-content: space-between;
-}
-.card {
-  background-color: #d0d0d0;
-  border-radius: 5px;
-  min-width: 350px;
-  min-height: 200px;
-  box-shadow: 0px 0px 10px 1px rgba(0, 0, 0, 0.81);
-  margin-bottom: 40px;
 }
 </style>
