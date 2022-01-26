@@ -1,20 +1,21 @@
 <template>
 <main>
-  <!-- <div class="wrapper" v-bind:style="cardColors" @click="$emit('activeCard', card)"> 
-    <h1>{{card.cardnum}}</h1>
-    <div class="logoWifi">
-    <img :src="card.vendor.wifi">
-    <img :src="card.vendor.logo">
-    </div>
-    <img class="chip" :src="card.vendor.chip">
-    <p class="name">Cardholder name: <br>{{card.name}} </p>
-    <p class="date">Year/Month <br>{{card.year}}/{{card.month}}</p>
-</div> -->
     <div>
   <h1>ADD A NEW BANK CARD</h1>
-  <p> {{cardInfo.cardNum}} </p>
-  <p v-if="errors.length"> </p>
-  <form @submit.prevent="sendCard">
+  <p v-for="error in errors" :key="error">
+    <b v-if="errors.length"> {{errors}} </b> </p>
+<div v-bind:style="cardColors">
+    <h1>{{seperateCardNum}}</h1>
+    <!-- <div class="logoWifi"> -->
+    <!-- <img :src="cardInfo.vendor.wifi"> -->
+    <img :src="cardInfo.vendor.logo">
+    <!-- </div> -->
+    <!-- <img class="chip" :src="cardInfo.vendor.chip"> -->
+    <p class="name">Cardholder name: <br>{{cardInfo.name}} </p>
+    <p class="date">Year/Month <br>{{cardInfo.month}}/{{cardInfo.year}}</p>
+</div>
+
+  <form @:submit.prevent="validate" @submit.prevent="sendCard">
       <label for="cardNum">CARD NUMBER</label><br>
       <input v-model="cardInfo.cardNum" type="text" id="cardNum"><br>
       <label for="cardHolder">CARDHOLDER NAME</label><br>
@@ -48,7 +49,12 @@
 <script>
 export default {
     data() { return {
-        cardInfo: { cardNum: "", name: "", date: "", ccv:""
+        cardInfo: { cardNum: "", name: "", date: "", ccv:"", vendor: {
+          name: 'Bitcoin Inc',
+          backgroundColor: '#FFAE34',
+          color: 'black',
+          logo: require('../assets/bitcoin.svg'),
+        }
         },  months: [
         '01',
         '02',
@@ -90,21 +96,31 @@ export default {
           logo: require('../assets/evil.svg'),
         },
       ],
+       errors: null,
     }
     },
-    errors: [],
     computed: {
     cardColors() {
       return {
-        backgroundColor: this.card.vendor.backgroundColor,
-        color: this.card.vendor.color,
+        backgroundColor: this.vendor.backgroundColor,
+        color: this.vendor.color,
     };
-}
+},  seperateCardNum() {
+      let output = ""
+         for( let i = 0; i < this.cardInfo.cardNum.length; i++) {
+         if  ( (i+1) %4 == 0) {
+           output = this.cardInfo.cardNum[i] + ' ';
+         
+       }
+    } return output
+},
     },
     methods: {
         sendCard(){
+          if (this.errors == null) {
             this.$emit('sendCard', {...this.cardInfo})
               this.$emit('viewChange');
+          }
         }, 
         // != /(\d{16}|\d{4}[- ]\d{4}[- ]\d{4}[- ]\d{4}")/g) 
         validate() {

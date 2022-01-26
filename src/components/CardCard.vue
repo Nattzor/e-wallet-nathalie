@@ -19,10 +19,11 @@ computed: {
       return {
         backgroundColor: this.card.vendor.backgroundColor,
         color: this.card.vendor.color,
-    };
-}
     }
-}
+},
+},
+    }
+
 </script>
 
 <style scoped>
