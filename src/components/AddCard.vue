@@ -53,7 +53,7 @@ export default {
     data() { return {
         cardInfo: { cardNum: "", name: "", date: "", ccv:"", vendor: {
           name: 'Bitcoin Inc',
-          backgroundColor: 'gray',
+          backgroundColor: '#D0D0D0',
           color: 'black',
           logo: require('../assets/bitcoin.svg'),
           wifi: require('../assets/wifi_white.svg'),
@@ -121,9 +121,9 @@ export default {
 },  seperateCardNum() {
       let output = ""
          for( let i = 0; i < this.cardInfo.cardNum.length; i++) {
-         if  ( (i+1) %4 == 0) {
-           output = this.cardInfo.cardNum[i] + ' ';
-         
+         if  ( (i+1) % 4 == 0) {
+           output += this.cardInfo.cardNum[i] + ' '; 
+       } else { output += this.cardInfo.cardNum[i];
        }
     } return output
 },
