@@ -1,8 +1,5 @@
 <template>
     <main class="app">
-      <nav>
-        <a @click="currentView = 'wallet'"> </a> 
-        </nav>
           <Wallet v-bind:cards="cards" v-if="currentView == 'wallet'" @viewChange="changeView" />
     <AddCard v-else @viewChange="changeView" @sendCard="newCardInfo"/>
   </main>

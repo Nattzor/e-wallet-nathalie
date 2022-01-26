@@ -4,18 +4,20 @@
   <h1>ADD A NEW BANK CARD</h1>
   <p v-for="error in errors" :key="error">
     <b v-if="errors.length"> {{errors}} </b> </p>
-<div v-bind:style="cardColors">
+<div class="card" v-bind:style="cardColors">
     <h1>{{seperateCardNum}}</h1>
-    <!-- <div class="logoWifi"> -->
-    <!-- <img :src="cardInfo.vendor.wifi"> -->
+    <div class="logoWifi">
+    <img :src="cardInfo.vendor.wifi">
     <img :src="cardInfo.vendor.logo">
-    <!-- </div> -->
-    <!-- <img class="chip" :src="cardInfo.vendor.chip"> -->
+    </div>
+    <img class="chip" :src="cardInfo.vendor.chip">
+    <div class="nameAndDate">
     <p class="name">Cardholder name: <br>{{cardInfo.name}} </p>
     <p class="date">Year/Month <br>{{cardInfo.month}}/{{cardInfo.year}}</p>
+    </div>
 </div>
 
-  <form @:submit.prevent="validate" @submit.prevent="sendCard">
+  <form  @submit.prevent="sendCard">
       <label for="cardNum">CARD NUMBER</label><br>
       <input v-model="cardInfo.cardNum" type="text" id="cardNum"><br>
       <label for="cardHolder">CARDHOLDER NAME</label><br>
@@ -51,9 +53,11 @@ export default {
     data() { return {
         cardInfo: { cardNum: "", name: "", date: "", ccv:"", vendor: {
           name: 'Bitcoin Inc',
-          backgroundColor: '#FFAE34',
+          backgroundColor: 'gray',
           color: 'black',
           logo: require('../assets/bitcoin.svg'),
+          wifi: require('../assets/wifi_white.svg'),
+          chip: require('../assets/chip.svg')
         }
         },  months: [
         '01',
@@ -76,34 +80,43 @@ export default {
           backgroundColor: '#FFAE34',
           color: 'black',
           logo: require('../assets/bitcoin.svg'),
+          wifi: require('../assets/wifi_white.svg'),
+          chip: require('../assets/chip.svg')
         },
         {
           name: 'Ninja Bank',
           backgroundColor: '#222222',
           color: 'white',
           logo: require('../assets/ninja.svg'),
+          wifi: require('../assets/wifi_white.svg'),
+          chip: require('../assets/chip.svg')
         },
         {
           name: 'Block Chain Inc',
           backgroundColor: '#8B58F9',
           color: 'white',
           logo: require('../assets/blockchain.svg'),
+          wifi: require('../assets/wifi.svg'),
+          chip: require('../assets/chip.svg')
+          
         },
         {
           name: 'Evil Corp',
           backgroundColor: '#F33355',
           color: 'white',
           logo: require('../assets/evil.svg'),
+          wifi: require('../assets/wifi_white.svg'),
+          chip: require('../assets/chip.svg')
         },
       ],
-       errors: null,
+       errors: [],
     }
     },
     computed: {
     cardColors() {
       return {
-        backgroundColor: this.vendor.backgroundColor,
-        color: this.vendor.color,
+        backgroundColor: this.cardInfo.vendor.backgroundColor,
+        color: this.cardInfo.vendor.color,
     };
 },  seperateCardNum() {
       let output = ""
@@ -117,7 +130,8 @@ export default {
     },
     methods: {
         sendCard(){
-          if (this.errors == null) {
+          this.validate()
+          if (this.errors.length == 0) {
             this.$emit('sendCard', {...this.cardInfo})
               this.$emit('viewChange');
           }
@@ -129,13 +143,35 @@ export default {
           }
           if (this.cardInfo.name.length == 0) {
             this.errors.push('must contain lest 1 letter')
-          }
-        }
+          } 
+        } 
     }
 }
 </script>
 
 <style scoped>
+.card {
+  width: 382px;
+height: 241px; 
+border-radius: 2%;
+filter: drop-shadow(0px 0px 16px rgba(0, 0, 0, 0.12));
+}
+.logoWifi {
+  display: flex;
+ flex-direction: row;
+ width: 100%;
+ justify-content: space-between;
+ height: 4rem;
+}
+
+.nameAndDate {
+  display: flex;
+ flex-direction: row;
+ width: 100%;
+ justify-content: space-between;
+ height: 4rem;
+}
+
 form{
   display: flex;
   flex-direction: column;
@@ -145,6 +181,10 @@ form{
 form > * {
   margin: 0.25rem;
   font-size: 1rem;
+}
+.buttonOnBottom {
+  background-color: black;
+  color: white;
 }
 
 </style>
