@@ -1,6 +1,6 @@
 <template>
     <main class="app">
-          <Wallet v-bind:cards="cards" v-if="currentView == 'wallet'" @viewChange="changeView" />
+    <Wallet v-bind:cards="cards" v-if="currentView == 'wallet'" @viewChange="changeView" />
     <AddCard v-else @viewChange="changeView" @sendCard="newCardInfo"/>
   </main>
 </template>
@@ -12,7 +12,7 @@ import AddCard from './components/AddCard.vue'
 export default {
   components: {Wallet, AddCard},
 data() { return {
-  cards: [{id: 0, name: 'Nathalie Larsson', cardNum: 666+" "+666+" "+666, year: 22, month:21, ccv: 555, vendor: { 
+  cards: [{id: 0, name: 'Nathalie Larsson', cardNum: 666+" "+666+" "+666+" "+666, year: 22, month:21, ccv: 555, vendor: { 
           name: 'Ninja Bank',
           backgroundColor: '#222222',
           color: 'white',
@@ -35,22 +35,22 @@ data() { return {
           logo: require('./assets/evil.svg'),
           wifi: require('./assets/wifi_white.svg'),
           chip: require('./assets/chip.svg')
-          
-        }}],
+      }
+    }],
 currentView: 'wallet',
-}
+  }
 },
 methods: {
   newCardInfo(newInfo) {
 this.cards.push(newInfo) 
   }, 
-    changeView() {
-      if (this.currentView == 'wallet') {
-        this.currentView = 'addCard';
-      } else {
-        this.currentView = 'wallet';
-      }
-    },
+  changeView() {
+    if (this.currentView == 'wallet') {
+      this.currentView = 'addCard';
+    } else {
+      this.currentView = 'wallet';
+    }
+  },
 }
 }
 </script>
@@ -68,14 +68,13 @@ this.cards.push(newInfo)
 }
 h1 {
   font-family: 'Source Sans Pro', sans-serif;
+  text-align: center;
 }
 h5 {
   color: #222222;
   opacity: 60%;
+  text-align: center;
   font-family: 'Source Sans Pro', sans-serif;
-}
-input {
-  font-family: 'PT Mono', monospace;
 }
 button {
   font-family: 'PT Mono', monospace;

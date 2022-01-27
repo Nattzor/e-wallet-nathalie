@@ -4,7 +4,6 @@
   <h1> E-Wallet</h1>
   <h5>Active card</h5>
   <CardCard class="activeCard" v-if="isActive" v-bind:card="isActive"/>
-
   <CardCard class="cardStack" v-for="card in cards" :key ="card.id" v-bind:card="card" @activeCard="activeCard" />
   </div>
   <button class="bottomOfPage" @click="changeView">Add new Card </button>
@@ -25,7 +24,7 @@ export default {
         changeView() {
         this.$emit('viewChange');
     }, 
-    activeCard(card) {
+activeCard(card) {
 this.isActive = card
 this.$emit('activeCard', this.isActive)
 }
@@ -35,14 +34,14 @@ this.$emit('activeCard', this.isActive)
 
 
 <style scoped>
-.activeCard{
+/* .activeCard{
     margin-bottom: 3rem;
-}
-
+} */
 .cardStack{
 display: grid;
 grid-auto-rows: 2rem;
 background-color: rgb(241, 233, 232);
+font-family: 'PT Mono'
 }
 
 .bottomOfPage {

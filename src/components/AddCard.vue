@@ -3,13 +3,13 @@
     <div>
   <h1>ADD A NEW BANK CARD</h1>
   <p v-for="error in errors" :key="error">
-    <b v-if="errors.length"> {{errors}} </b> </p>
-<div class="card" v-bind:style="cardColors">
-    <h1>{{seperateCardNum}}</h1>
+    <b class="error" v-if="errors.length"> {{errors}} </b> </p>
+<div class="wrapper" v-bind:style="cardColors">
     <div class="logoWifi">
     <img :src="cardInfo.vendor.wifi">
     <img :src="cardInfo.vendor.logo">
     </div>
+     <h1>{{seperateCardNum}}</h1>
     <img class="chip" :src="cardInfo.vendor.chip">
     <div class="nameAndDate">
     <p class="name">Cardholder name: <br>{{cardInfo.name}} </p>
@@ -19,7 +19,7 @@
 
   <form  @submit.prevent="sendCard">
       <label for="cardNum">CARD NUMBER</label><br>
-      <input v-model="cardInfo.cardNum" type="text" id="cardNum"><br>
+      <input v-model="cardInfo.cardNum" type="text" id="cardNum" maxlength="16"><br>
       <label for="cardHolder">CARDHOLDER NAME</label><br>
       <input v-model="cardInfo.name" type="text" id="cardHolder" placeholder="FIRSTNAME LASTNAME"><br>
           <label for="month">MONTH</label>
@@ -41,7 +41,7 @@
         </option>
       </select>
        <label for="cardCcv">CCV</label><br>
-      <input v-model="cardInfo.ccv" type="text" id="cardCcv"><br>
+      <input v-model="cardInfo.ccv" type="text" id="cardCcv" maxlength="3"><br>
         <button class="buttonOnBottom"> Add CARD</button>
        </form>
        </div>
@@ -142,7 +142,7 @@ export default {
         this.errors.push('must contain 16 digits')
           }
           if (this.cardInfo.name.length == 0) {
-            this.errors.push('must contain lest 1 letter')
+            this.errors.push('name required')
           } 
         } 
     }
@@ -150,7 +150,7 @@ export default {
 </script>
 
 <style scoped>
-.card {
+.wrapper {
   width: 382px;
 height: 241px; 
 border-radius: 2%;
@@ -170,6 +170,7 @@ filter: drop-shadow(0px 0px 16px rgba(0, 0, 0, 0.12));
  width: 100%;
  justify-content: space-between;
  height: 4rem;
+ font-family: 'PT Mono'
 }
 
 form{
@@ -185,6 +186,10 @@ form > * {
 .buttonOnBottom {
   background-color: black;
   color: white;
+}
+
+.error {
+  color: red;
 }
 
 </style>

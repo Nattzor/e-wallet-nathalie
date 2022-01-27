@@ -1,10 +1,10 @@
 <template>
-  <div class="wrapper" v-bind:style="cardColors" @click="$emit('activeCard', card)"> 
-    <h1>{{card.cardNum}}</h1>
+  <div class="card" v-bind:style="cardColors" @click="$emit('activeCard', card)"> 
     <div class="logoWifi">
     <img :src="card.vendor.wifi">
     <img :src="card.vendor.logo">
     </div>
+     <h1>{{card.cardNum}}</h1>
     <img class="chip" :src="card.vendor.chip">
     <div class="nameAndDate">
     <p class="name">Cardholder name: <br>{{card.name}} </p>
@@ -29,15 +29,16 @@ computed: {
 </script>
 
 <style scoped>
-img {
-text-align: left;
-}
 
-.wrapper {
+.card {
 width: 382px;
 height: 241px; 
 filter: drop-shadow(0px 0px 16px rgba(0, 0, 0, 0.12));
 border-radius: 2%;
+}
+
+h1 {
+ text-align: center;
 }
 
 .logoWifi {
@@ -49,7 +50,7 @@ border-radius: 2%;
 }
 
 .chip {
-  margin-top: 2rem;
+  margin-top: 1rem;
 }
 
 .nameAndDate {
@@ -57,7 +58,6 @@ border-radius: 2%;
  flex-direction: row;
  width: 100%;
  justify-content: space-between;
- margin-top: 3rem;
+ margin-top: 2rem;
 }
-
 </style>
