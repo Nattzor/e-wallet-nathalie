@@ -54,10 +54,19 @@ h1 {
 }
 
 .nameAndDate {
-  display: flex;
+display: flex;
  flex-direction: row;
  width: 100%;
  justify-content: space-between;
- margin-top: 2rem;
+ margin-top: 2.5rem;
 }
+
+.name {
+  margin-left: 0.5rem;
+}
+
+.date {
+  margin-right: 0.5rem;
+}
+
 </style>

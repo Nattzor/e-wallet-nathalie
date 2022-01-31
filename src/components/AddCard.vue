@@ -9,8 +9,8 @@
     <img :src="cardInfo.vendor.wifi">
     <img :src="cardInfo.vendor.logo">
     </div>
+     <img class="chip" :src="cardInfo.vendor.chip">
      <h1>{{seperateCardNum}}</h1>
-    <img class="chip" :src="cardInfo.vendor.chip">
     <div class="nameAndDate">
     <p class="name">Cardholder name: <br>{{cardInfo.name}} </p>
     <p class="date">Year/Month <br>{{cardInfo.month}}/{{cardInfo.year}}</p>
@@ -156,6 +156,11 @@ height: 241px;
 border-radius: 2%;
 filter: drop-shadow(0px 0px 16px rgba(0, 0, 0, 0.12));
 }
+
+h1 {
+  margin: 0.5rem;
+}
+
 .logoWifi {
   display: flex;
  flex-direction: row;
@@ -171,6 +176,18 @@ filter: drop-shadow(0px 0px 16px rgba(0, 0, 0, 0.12));
  justify-content: space-between;
  height: 4rem;
  font-family: 'PT Mono'
+}
+
+.chip {
+  margin-left: 0.5rem;
+}
+
+.name {
+  margin-left: 0.5rem;
+}
+
+.date {
+  margin-right: 0.5rem;
 }
 
 form{
