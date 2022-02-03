@@ -4,9 +4,11 @@
   <h1> E-Wallet</h1>
   <h5>Active card</h5>
   <CardCard class="activeCard" v-if="isActive" v-bind:card="isActive"/>
-  <CardCard class="cardStack" v-for="card in cards" :key ="card.id" v-bind:card="card" @activeCard="activeCard" />
-  </div>
+</div>
+<div class="cardStack">
+  <CardCard v-for="card in cards" :key ="card.id" v-bind:card="card" @activeCard="activeCard" />
   <button class="bottomOfPage" @click="changeView">Add new Card </button>
+  </div>
   </main>
 </template>
 
@@ -34,9 +36,10 @@ this.$emit('activeCard', this.isActive)
 
 
 <style scoped>
-/* .activeCard{
+.activeCard{
     margin-bottom: 3rem;
-} */
+    margin-top: 0rem;
+}
 .cardStack{
 display: grid;
 grid-auto-rows: 2rem;
@@ -48,7 +51,6 @@ font-family: 'PT Mono'
 position: relative;
 width: 382px;
 height: 80px;
-left: 16px;
-top: 5rem;
+top: 15rem;
 }
 </style>

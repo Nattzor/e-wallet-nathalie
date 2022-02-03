@@ -4,8 +4,8 @@
     <img :src="card.vendor.wifi">
     <img :src="card.vendor.logo">
     </div>
+     <img class="chip" :src="card.vendor.chip">
      <h1>{{card.cardNum}}</h1>
-    <img class="chip" :src="card.vendor.chip">
     <div class="nameAndDate">
     <p class="name">Cardholder name: <br>{{card.name}} </p>
     <p class="date">Year/Month <br>{{card.year}}/{{card.month}}</p>
@@ -39,6 +39,7 @@ border-radius: 2%;
 
 h1 {
  text-align: center;
+ margin: 0.5rem;
 }
 
 .logoWifi {
@@ -50,7 +51,8 @@ h1 {
 }
 
 .chip {
-  margin-top: 1rem;
+  margin-top: 0.5rem;
+  margin-left: 0.5rem;
 }
 
 .nameAndDate {
@@ -58,7 +60,7 @@ display: flex;
  flex-direction: row;
  width: 100%;
  justify-content: space-between;
- margin-top: 2.5rem;
+ margin-top: 1rem;
 }
 
 .name {
